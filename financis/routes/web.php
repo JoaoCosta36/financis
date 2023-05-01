@@ -32,3 +32,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Rota para Dividas
+Route::get('/dividas', [App\Http\Controllers\HomeController::class, 'dividas'])->name('dividas');
