@@ -9,7 +9,6 @@
     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
     <label class="navbar-brand" value="titulo" for="">Título:</label>
     <input class="navbar-brand" type="text" name="titulo" id="titulo" required>
-    <p>
     <label class="navbar-brand" value="valor" for="">Valor:</label>
     <input class="navbar-brand" placeholder="0.00" name="valor" id="valor" type="decimal" min="0" value="0" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="
 this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
