@@ -27,7 +27,7 @@
                 <a class="navbar-brand" href="{{ url('/dividas') }}">
                     Dívidas
                 </a>
-                <a class="navbar-brand" href="{{ url('/welcome') }}">
+                <a class="navbar-brand" href="{{ url('/poupancas') }}">
                     Wishlist
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
