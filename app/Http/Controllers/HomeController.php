@@ -36,6 +36,11 @@ class HomeController extends Controller
     $loggedemail = \Auth::user()->email;
     $poupancas = DB::table('poupancas')->where('email', '=', $loggedemail)->select('titulo','valor','obs','date')->get();
     return view('poupancas')->with('poupancas', $poupancas);
+  }
+  public function wishlist(){
+    $loggedemail = \Auth::user()->email;
+    $wishlist = DB::table('wishlist')->where('email', '=', $loggedemail)->select('titulo','valor','obs','date')->get();
+    return view('wishlist')->with('wishlist', $wishlist);
     
   }
     public function inserirPoupancas(Request $request){
@@ -60,6 +65,19 @@ class HomeController extends Controller
         $data=array('titulo'=>$titulo,"valor"=>$valor,"date"=>$date,"obs"=>$obs,"email"=>$loggedemail);
         
         DB::table('dividas')->insert($data);
+        
+        echo "Record inserted successfully for the email:.<br/>";
+        echo '<a href = "/dividas">Click Here</a> to go back.';
+    }
+    public function inserirWishlist(Request $request){
+        $titulo = $request->input('titulo');
+        $valor = $request->input('valor');
+        $date = $request->input('date');
+        $obs =$request->input('obs');
+        $loggedemail = \Auth::user()->email;
+        $data=array('titulo'=>$titulo,"valor"=>$valor,"date"=>$date,"obs"=>$obs,"email"=>$loggedemail);
+        
+        DB::table('wishlist')->insert($data);
         
         echo "Record inserted successfully for the email:.<br/>";
         echo '<a href = "/dividas">Click Here</a> to go back.';
