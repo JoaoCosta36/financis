@@ -29,13 +29,13 @@
     <th>Data</th>
   </tr>
   {{$total=null}}
-  @foreach ($wishlists as $wishlist) 
+  @foreach ($wishlist as $wishlists) 
   
   <tr>
-    <td>{{ $wishlist->titulo }}</td>
-    <td>{{ $wishlist->valor }}</td>
-    <td>{{ $wishlist->obs }}</td>
-    <td>{{ $wishlist->date }}</td>
+    <td>{{ $wishlists->titulo }}</td>
+    <td>{{ $wishlists->valor }}</td>
+    <td>{{ $wishlists->obs }}</td>
+    <td>{{ $wishlists->date }}</td>
     <label hidden="hidden">{{ $total += $wishlist->valor}}</label>
     
   </tr>
