@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<link rel="stylesheet" href="{{asset('js/app.js'}}">
+<link rel="stylesheet" href="{{asset('js/app.js')}}">
 
 <b><i><h1 style="text-align: center;" >Wishlist</h1></i></b>
 <div class="container">
