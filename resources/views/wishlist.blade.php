@@ -63,7 +63,7 @@ function sortTable(n) {
 </script>
 <b><i><h1 style="text-align: center;" >Wishlist</h1></i></b>
 <div class="container">
-    <form action="/wishlists" method="post">
+    <form action="/wishlist" method="post">
     <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>"><input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
     <label class="navbar-brand" value="titulo" for="">Título:</label>
     <input class="navbar-brand" type="text" name="titulo" id="titulo" required>
@@ -94,7 +94,7 @@ function sortTable(n) {
     <td>{{ $wishlists->valor }}</td>
     <td>{{ $wishlists->obs }}</td>
     <td>{{ $wishlists->date }}</td>
-    <label hidden="hidden">{{ $total += $wishlist->valor}}</label>
+    <label hidden="hidden">{{ $total += $wishlists->valor}}</label>
     
   </tr>
   @endforeach
