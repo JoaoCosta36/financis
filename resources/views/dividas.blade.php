@@ -84,7 +84,7 @@ function sortTable(n) {
     <th >Titulo</th>
     <th>Valor</th>
     <th>Observações</th>
-    <th onclick="sortTable(0)">Data</th>
+    <th onclick="sortTable(0)" style="cursor: pointer;">Data</th>
   </tr>
   {{$total=null}}
   @foreach ($dividas as $divida) 
