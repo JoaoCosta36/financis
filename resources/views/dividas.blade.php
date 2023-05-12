@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+<link rel="stylesheet" href="{{asset('js/app.js')}}">
 <b><i><h1 style="text-align: center;" >Dívidas</h1></i></b>
 <div class="container">
     <form action="/dividas" method="post">
@@ -21,7 +21,7 @@
 </div>
 <div>
 
-<table >
+<table id="myTable2">
    <tr>
     <th>Titulo</th>
     <th>Valor</th>
