@@ -23,10 +23,10 @@
 
 <table id="myTable2">
    <tr>
-    <th>Titulo</th>
+    <th >Titulo</th>
     <th>Valor</th>
     <th>Observações</th>
-    <th>Data</th>
+    <th onclick="sortTable(0)">Data</th>
   </tr>
   {{$total=null}}
   @foreach ($dividas as $divida) 
