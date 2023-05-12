@@ -81,10 +81,10 @@ function sortTable(n) {
 
 <table id="myTable2">
    <tr>
-    <th onclick="sortTable(0)">Titulo</th>
-    <th onclick="sortTable(1)">Valor</th>
-    <th onclick="sortTable(2)">Observações</th>
-    <th onclick="sortTable(3)">Data</th>
+    <th >Titulo</th>
+    <th onclick="sortTable(0)" style="cursor: pointer;">Valor</th>
+    <th >Observações</th>
+    <th onclick="sortTable(0)" style="cursor: pointer;">Data</th>
   </tr>
   {{$total=null}}
   @foreach ($wishlist as $wishlists) 
