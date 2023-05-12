@@ -2,6 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{asset('js/app.js'}}">
 
 <b><i><h1 style="text-align: center;" >Wishlist</h1></i></b>
 <div class="container">
@@ -21,12 +22,12 @@
 </div>
 <div>
 
-<table >
+<table id="myTable2">
    <tr>
-    <th>Titulo</th>
-    <th>Valor</th>
-    <th>Observações</th>
-    <th>Data</th>
+    <th onclick="sortTable(0)">Titulo</th>
+    <th onclick="sortTable(1)">Valor</th>
+    <th onclick="sortTable(2)">Observações</th>
+    <th onclick="sortTable(3)">Data</th>
   </tr>
   {{$total=null}}
   @foreach ($wishlist as $wishlists) 

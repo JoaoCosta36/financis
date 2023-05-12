@@ -77,7 +77,7 @@ class HomeController extends Controller
         $loggedemail = \Auth::user()->email;
         $data=array('titulo'=>$titulo,"valor"=>$valor,"date"=>$date,"obs"=>$obs,"email"=>$loggedemail);
         
-        DB::table('wishlist')->insert($data);
+        DB::table('dividas')->insert($data);
         
         echo "Record inserted successfully for the email:.<br/>";
         echo '<a href = "/dividas">Click Here</a> to go back.';
