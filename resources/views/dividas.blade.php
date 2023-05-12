@@ -82,7 +82,7 @@ function sortTable(n) {
 <table id="myTable2">
    <tr>
     <th >Titulo</th>
-    <th>Valor</th>
+    <th onclick="sortTable(0)" style="cursor: pointer;">Valor</th>
     <th>Observações</th>
     <th onclick="sortTable(0)" style="cursor: pointer;">Data</th>
   </tr>
