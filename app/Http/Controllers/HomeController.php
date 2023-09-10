@@ -31,12 +31,12 @@ class HomeController extends Controller
     public function dividas()
     {
     $loggedemail = \Auth::user()->email;
-    $dividas = DB::table('dividas')->where('email', '=', $loggedemail)->select('titulo','valor','obs','date')->get();
+    $dividas = DB::table('dividas')->where('email', '=', $loggedemail)->select('id','titulo','valor','obs','date','email')->get();
     return view('dividas')->with('dividas', $dividas);
     }
     public function poupancas(){
     $loggedemail = \Auth::user()->email;
-    $poupancas = DB::table('poupancas')->where('email', '=', $loggedemail)->select('titulo','valor','obs','date')->get();
+    $poupancas = DB::table('poupancas')->where('email', '=', $loggedemail)->select('id','titulo','valor','obs','date','email')->get();
     return view('poupancas')->with('poupancas', $poupancas);
   }
   public function wishlist(){
@@ -55,8 +55,7 @@ class HomeController extends Controller
         
         DB::table('poupancas')->insert($data);
         
-        echo "Record inserted successfully for the email:.<br/>";
-        echo '<a href = "/poupancas">Click Here</a> to go back.';
+        return redirect()->back();
     }
     public function inserirDividas(Request $request){
         $titulo = $request->input('titulo');
@@ -68,8 +67,7 @@ class HomeController extends Controller
         
         DB::table('dividas')->insert($data);
         
-        echo "Record inserted successfully for the email:.<br/>";
-        echo '<a href = "/dividas">Click Here</a> to go back.';
+        return redirect()->back();
     }
     public function inserirWishlist(Request $request){
         
@@ -95,5 +93,23 @@ class HomeController extends Controller
         
         return redirect()->back();
     }
+    public function deletePoupancasRow($id){
+        echo "<script>window.alert('Apagado com sucesso');</script>";
+            $query = DB::table('poupancas'); // Isso busca o usuário com o ID 1
+            $loggedemail = \Auth::user()->email;
+            $row =DB::table('poupancas')->where('id', $id);
+            $del= $row->where('email',$loggedemail)->delete();
+            
+            return redirect()->back();
+        }
+        public function deleteDividasRow($id){
+            echo "<script>window.alert('Apagado com sucesso');</script>";
+                $query = DB::table('dividas'); // Isso busca o usuário com o ID 1
+                $loggedemail = \Auth::user()->email;
+                $row =DB::table('dividas')->where('id', $id);
+                $del= $row->where('email',$loggedemail)->delete();
+                
+                return redirect()->back();
+            }
 
 }

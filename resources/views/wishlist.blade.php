@@ -31,7 +31,7 @@
     <th onclick="sortTable(0)" style="cursor: pointer;">Valor</th>
     <th >Observações</th>
     <th onclick="sortTable(0)" style="cursor: pointer;">Data</th>
-    <th></th>
+    <th>Action</th>
   </tr>
   {{$total=null}}
   
