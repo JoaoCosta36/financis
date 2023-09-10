@@ -15,7 +15,7 @@ Route::post('/poupancas', [App\Http\Controllers\HomeController::class, 'inserirP
 Route::get('/wishlist', [App\Http\Controllers\HomeController::class, 'wishlist'])->name('wishlist');
 Route::post('/wishlist', [App\Http\Controllers\HomeController::class, 'inserirWishlist'])->name('wishlist');
 
-
+Route::get('/deleteWishlistRow/{id}', [App\Http\Controllers\HomeController::class, 'deleteWishlistRow'])->name('wishlist');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
+
 class HomeController extends Controller
 
 {
@@ -39,7 +41,7 @@ class HomeController extends Controller
   }
   public function wishlist(){
     $loggedemail = \Auth::user()->email;
-    $wishlist = DB::table('wishlist')->where('email', '=', $loggedemail)->select('titulo','valor','obs','date')->get();
+    $wishlist = DB::table('wishlist')->where('email', '=', $loggedemail)->select('id','image','email','titulo','valor','obs','date')->get();
     return view('wishlist')->with('wishlist', $wishlist);
     
   }
@@ -70,17 +72,28 @@ class HomeController extends Controller
         echo '<a href = "/dividas">Click Here</a> to go back.';
     }
     public function inserirWishlist(Request $request){
+        
         $titulo = $request->input('titulo');
         $valor = $request->input('valor');
         $date = $request->input('date');
         $obs =$request->input('obs');
+        $img =$request->input('image');
         $loggedemail = \Auth::user()->email;
-        $data=array('titulo'=>$titulo,"valor"=>$valor,"date"=>$date,"obs"=>$obs,"email"=>$loggedemail);
+        $data=array('titulo'=>$titulo,"valor"=>$valor,"date"=>$date,"obs"=>$obs,"image"=>$img,"email"=>$loggedemail);
         
         DB::table('wishlist')->insert($data);
         
-        echo "Record inserted successfully for the email:.<br/>";
-        echo '<a href = "/wishlist">Click Here</a> to go back.';
+        echo "<script>alert('Inserido com sucesso');</script>";
+        return redirect()->back();
     }
-  
+    public function deleteWishlistRow($id){
+    echo "<script>window.alert('Apagado com sucesso');</script>";
+        $query = DB::table('wishlist'); // Isso busca o usuário com o ID 1
+        $loggedemail = \Auth::user()->email;
+        $row =DB::table('wishlist')->where('id', $id);
+        $del= $row->where('email',$loggedemail)->delete();
+        
+        return redirect()->back();
+    }
+
 }
